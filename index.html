@@ -2,14 +2,48 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css"/>
         <title>Rock, Paper, Scissors</title>
+
     </head>
 
     <body>
-        <h1>Rock, Paper, Scissors!</h1>
-        <button id="ROCK">Rock!</button>
-        <button id="PAPER">Paper!</button>
-        <button id="SCISSORS">Scissors!</button>
+        <section class="title">
+            <h1>Rock, Paper, Scissors!</h1>
+        </section>
+
+        <section class="options">
+            <button id="ROCK">Rock!</button>
+            <button id="PAPER">Paper!</button>
+            <button id="SCISSORS">Scissors!</button>
+        </section>
+
+        <section class="box">
+
+            <div class="userScore">
+                <span>USER SCORE</span>
+
+                <div id="userCount">
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="compScore">
+
+                <span>COMPUTER SCORE</span>
+
+                <div id="compCount">
+                    <p></p>
+                </div>
+            </div>
+
+    
+        </section>
+
+        <div id="announcement">
+            
+        </div>
+        
 
         <script src="javascript.js"></script>
     </body>

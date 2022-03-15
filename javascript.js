@@ -4,6 +4,7 @@ let compScore = 0;
 
 
 
+
 //generates a random choice from the computer.
 function computerPlay() {
     comp_attack = Math.floor(Math.random() * (3)) + 1;
@@ -24,8 +25,10 @@ function computerPlay() {
 //determines whether player or computer wins. if user wins, return true. if comp wins, return false.
 function playRound(playerSelection, computerSelection) {
 
-    console.log(`THE USER CHOSE ${playerSelection} AND THE COMPUTER CHOSE ${computerSelection}`);
+    var announce = document.getElementById('announcement');
+    announce.textContent = `YOUR CHOICE: ${playerSelection}  PC CHOICE: ${computerSelection}`;
 
+  
     if (playerSelection === computerSelection) {
         console.log("IT'S A TIE");
         let tie = 0;
@@ -67,35 +70,49 @@ function game (userChoice) { //plays the game for 5 rounds and keeps track of sc
     if ((userScore < 5) && (compScore < 5)) {
         let computerSelection = computerPlay();
         let winner = playRound(userChoice, computerSelection);
+        var userScoreCount = document.getElementById('userCount');
+        var compScoreCount = document.getElementById('compCount');
+        
 
         if (winner === true) {
             userScore += 1;
-            console.log(`THE USER HAS ${userScore} POINT(S)`);
+            userScoreCount.textContent = `${userScore}`;
+            if (userScore === 5) {
+                conclusion(userScore, compScore);
+            }
+            
         }
         else if (winner === false) {
             compScore += 1;
-            console.log(`THE COMPUTER HAS ${compScore} POINT(S)`);
+            compScoreCount.textContent = `${compScore}`;
+            if (compScore === 5) {
+                conclusion(userScore, compScore);
+            }
         }
         else if (winner == 0 ) {
             console.log('IT IS A TIE');
         }
     }
 
-    //announces which user won the game.
-    else if (userScore > compScore) {
-        console.log('USER WINS THE GAME!');
+}
+
+function conclusion(userScore, compScore) {
+    if (userScore > compScore) {
+        var announce = document.getElementById('announcement');
+        announce.textContent = 'THE USER WINS!';
         return;
     }
     else if (compScore > userScore) {
-        console.log('COMPUTER WINS THE GAME');
+        var announce = document.getElementById('announcement');
+        announce.textContent = 'THE COMPUTER WINS!';
         return;
     }
     else {
-        console.log("IT'S A TIE");
+        var announce = document.getElementById('announcement');
+        announce.textContent = `IT'S A TIE!`;;
         return;
     }
 }
-
 
 
 function playGame() {

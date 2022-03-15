@@ -1,0 +1,30 @@
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: pink;
+    padding: 20px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+
+}
+
+.userScore, .compScore, #announcement {
+    padding: 50px;
+}
+
+#announcement {
+    display: flex;
+    justify-content: center;
+
+}
+
