@@ -1,9 +1,22 @@
+/*set scores to 0*/
 let userScore = 0;
 let compScore = 0;
-
-
-
-
+/*creating variables to show user and comp score count */
+var userScoreCount = document.getElementById('userCount');
+var compScoreCount = document.getElementById('compCount');
+/* variables to announce the choices */
+var uAnnounce = document.getElementById('uChoice');
+var cAnnounce = document.getElementById('cChoice');
+/* announces winner */
+let winner = document.querySelector('.announcer');
+let div = document.createElement('div');
+/*display user and computer choice images in the boxes on the top of the screen */
+const ubox = document.querySelector('#userDisplay');
+let uImg = document.createElement('div');
+ubox.appendChild(uImg);
+const cbox = document.querySelector('#compDisplay');
+let cImg = document.createElement('div');
+cbox.appendChild(cImg);
 
 //generates a random choice from the computer.
 function computerPlay() {
@@ -25,42 +38,51 @@ function computerPlay() {
 //determines whether player or computer wins. if user wins, return true. if comp wins, return false.
 function playRound(playerSelection, computerSelection) {
 
-    var announce = document.getElementById('announcement');
-    announce.textContent = `YOUR CHOICE: ${playerSelection}  PC CHOICE: ${computerSelection}`;
+    uAnnounce.textContent = `YOU CHOSE: ${playerSelection}`;
+
+
+    cAnnounce.textContent = `PC CHOSE: ${computerSelection}`;
 
   
     if (playerSelection === computerSelection) {
-        console.log("IT'S A TIE");
         let tie = 0;
         return tie;
     }
     else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-        console.log(`COMPUTER WINS`)
         return false;
     }
     else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-        console.log('USER WINS');
         return true;
     }
     else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-        
-        console.log('USER WINS');
         return true;
     }
     else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-        console.log('COMPUTER WINS');
+        
         return false;
     }
     else if (playerSelection === "SCISSORS" && computerSelection == "PAPER") {
-        console.log('USER WINS');
         return true;
     }
     else if (playerSelection === "SCISSORS" && computerSelection == "ROCK") {
-        console.log('COMPUTER WINS')
         return false;
     }
 }
 
+
+function uDisplay(uChoice) {
+    uImg.className = '';
+    console.log(uChoice);
+    uImg.classList.add(uChoice);
+
+}
+
+function cDisplay(cChoice) {
+    cImg.className = '';
+    console.log(cChoice);
+    cImg.classList.add(cChoice);
+
+}
 
 
 function game (userChoice) { //plays the game for 5 rounds and keeps track of score
@@ -68,19 +90,17 @@ function game (userChoice) { //plays the game for 5 rounds and keeps track of sc
 
     //when each player has a score lower than 5, the game commences.
     if ((userScore < 5) && (compScore < 5)) {
+        uDisplay(userChoice);
         let computerSelection = computerPlay();
+        cDisplay(computerSelection);
         let winner = playRound(userChoice, computerSelection);
-        var userScoreCount = document.getElementById('userCount');
-        var compScoreCount = document.getElementById('compCount');
         
-
         if (winner === true) {
             userScore += 1;
             userScoreCount.textContent = `${userScore}`;
             if (userScore === 5) {
                 conclusion(userScore, compScore);
-            }
-            
+            } 
         }
         else if (winner === false) {
             compScore += 1;
@@ -89,33 +109,77 @@ function game (userChoice) { //plays the game for 5 rounds and keeps track of sc
                 conclusion(userScore, compScore);
             }
         }
-        else if (winner == 0 ) {
-            console.log('IT IS A TIE');
+        else if (winner == 0 ) {  
         }
     }
 
 }
 
 function conclusion(userScore, compScore) {
+
+    
+    div.classList.add('winnerAnnouncement');
+
     if (userScore > compScore) {
-        var announce = document.getElementById('announcement');
-        announce.textContent = 'THE USER WINS!';
-        return;
+        div.textContent = "USER WINS";
+        winner.appendChild(div);
+        //playAgain();
     }
     else if (compScore > userScore) {
-        var announce = document.getElementById('announcement');
-        announce.textContent = 'THE COMPUTER WINS!';
-        return;
+        div.textContent = "PC WINS";
+        winner.appendChild(div);
+        //playAgain();
     }
     else {
-        var announce = document.getElementById('announcement');
-        announce.textContent = `IT'S A TIE!`;;
-        return;
+        div.textContent = "IT'S A TIE";
+        winner.appendChild(div);
+        //playAgain();
     }
 }
 
+/*function playAgain() {
+    let playAgain = document.querySelector('.announcer');
+    let p = document.createElement('div');
+    p.classList.add('playAgain');
+    p.textContent = 'Play Again?';
+    playAgain.appendChild(p);
 
-function playGame() {
+    let btns = document.querySelector('.buttons');
+    let btnYes = document.createElement("button");
+    btnYes.textContent = "Yes";
+    btnYes.classList.add('playAgainBtn');
+    btns.appendChild(btnYes);
+    btnYes.addEventListener('click', () => {
+        userScore = 0;
+        compScore = 0;
+        p.remove();
+        btnYes.remove();
+        btnNo.remove();
+        div.remove();
+        uAnnounce.textContent = '';
+        cAnnounce.textContent = '';
+        userScoreCount.textContent = ``;
+        compScoreCount.textContent = ``;
+        playGame(userScore, compScore);
+    })
+    let btnNo = document.createElement("button");
+    btnNo.textContent = "No"
+    btnNo.classList.add('playAgainBtn');
+    btns.appendChild(btnNo);
+    btnNo.addEventListener('click', () => {
+        p.remove();
+        btnYes.remove();
+        btnNo.remove();
+    
+        return;
+    })
+
+
+
+}
+*/
+
+function playGame(userScore, compScore) {
 
     //check whether user has clicked button, based on button id. 
 
@@ -149,5 +213,5 @@ function playGame() {
 }
     
 
-playGame();
+playGame(userScore, compScore);
 

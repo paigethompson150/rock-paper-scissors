@@ -7,21 +7,56 @@
 
     </head>
 
-    <body>
+    <body class="wrapper">
+        
         <section class="title">
             <h1>Rock, Paper, Scissors!</h1>
         </section>
 
+        <section class="display">
+
+            <div class="userBox">
+                <button id="userDisplay">
+                </button>
+
+                <div id="uChoice"></div>
+            </div>
+
+            <div class="compBox">
+                <button id="compDisplay">
+                </button>
+
+                <div id="cChoice"></div>
+            </div>
+
+            
+
+        </section>
+
+        <section class="announcer">
+        </section>
+    
+
+        <section class="buttons">
+        </section>
+        
+
         <section class="options">
-            <button id="ROCK">Rock!</button>
-            <button id="PAPER">Paper!</button>
-            <button id="SCISSORS">Scissors!</button>
+            <button id="ROCK" >
+                <img src="https://ih1.redbubble.net/image.353208475.5401/st,small,507x507-pad,600x600,f8f8f8.u6.jpg" width="100%" height="100%" alt="choose rock" /> 
+            </button>
+            <button id="PAPER">
+                <img src="https://thumbs.dreamstime.com/b/line-drawing-cartoon-sheet-paper-creative-illustrated-147654134.jpg" width="100%" height="100%" alt="choose paper" />
+            </button>
+            <button id="SCISSORS">
+                <img src="https://img.myloview.com/posters/vector-scissors-icon-cartoon-style-on-white-isolated-background-400-213583210.jpg" width="100%" height="100%" alt="choose scissors" />
+            </button>
         </section>
 
         <section class="box">
 
             <div class="userScore">
-                <span>USER SCORE</span>
+                <p>USER SCORE</p>
 
                 <div id="userCount">
                     <p></p>
@@ -30,7 +65,7 @@
 
             <div class="compScore">
 
-                <span>COMPUTER SCORE</span>
+                <p>COMPUTER SCORE</p>
 
                 <div id="compCount">
                     <p></p>
@@ -40,12 +75,15 @@
     
         </section>
 
-        <div id="announcement">
+        
+
+        <div id="playagain">
             
         </div>
         
 
         <script src="javascript.js"></script>
+
     </body>
 </html>
 

@@ -1,30 +1,117 @@
+.wrapper {
+    text-align: center;
+    background-color: lightpink;
+    padding: 5px;
+}
+
+
 .title {
     display: flex;
     justify-content: center;
     font-size: 30px;
+    background-color: black;
+    color: white;
 }
 
 
-.options {
+.options,  .display  {
     display: flex;
     justify-content: space-evenly;
-    background-color: pink;
-    padding: 20px;
+    background-color: lightpink;
+    padding: 30px;
 }
 
 .box {
     display: flex;
     justify-content: center;
+    background-color: lightpink;
 
 }
 
-.userScore, .compScore, #announcement {
+.userScore, .compScore, #announcement{
     padding: 50px;
+    display: block;
 }
 
 #announcement {
     display: flex;
     justify-content: center;
+    background-color: lightpink;
+}
 
+button {
+    width: 150px;
+    height: 150px;
+}
+
+.playAgain {
+    display: flex;
+    justify-content: center;
+    background-color: lightpink;
+}
+
+.playAgainBtn {
+    width: 60px;
+    height: 60px;
+    background-color: lightpink;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#userCount, #compCount {
+    text-align: center;
+}
+
+.compBox, .userBox {
+    padding: 10px;
+    text-align: center;
+}
+
+.winnerAnnouncement {
+    text-align: center;
+    background-color: lightpink;
+    padding: 10px;
+    font-size: 20px;
+
+}
+
+
+#uChoice, #cChoice {
+    padding: 10px;
+    min-width: 20px;
+}
+
+/* classlists used for adding images to the user and pc choice displays */
+.ROCK {
+    background-image: url(./photos/rock.jpg);
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+
+}
+
+.PAPER {
+    background: url(./photos/paper.jpeg);
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.SCISSORS {
+   background-image: url(./photos/scissors.jpeg);
+   background-size: contain;
+   height: 100%;
+   width: 100%;
+}
+
+
+/** { 
+ font-family: fantasy; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Copperplate, "Copperplate Gothic Light", fantasy; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; 
+}
+*/
+
+* {
+    font-family: 'Open Sans';font-size: 22px;
 }
 
