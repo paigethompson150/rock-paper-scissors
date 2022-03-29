@@ -214,4 +214,3 @@ function playGame(userScore, compScore) {
     
 
 playGame(userScore, compScore);
-
